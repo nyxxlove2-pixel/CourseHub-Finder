@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account | ProgramMatch AI</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #eef2ff, #fdf0f7);
+            color: #14245b;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 25px;
+        }
+
+        .register-container {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            max-width: 950px;
+            width: 100%;
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px #5367a51c;
+        }
+
+        .welcome-panel {
+            background: linear-gradient(145deg, #3563ff, #8b5cf6, #f4518c);
+            color: white;
+            padding: 45px 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .welcome-panel h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .welcome-panel p {
+            line-height: 1.8;
+            margin-bottom: 25px;
+            color: #ffffffeb;
+        }
+
+        .welcome-panel ul {
+            list-style: none;
+            line-height: 2.5;
+        }
+
+        .form-panel {
+            padding: 45px 40px;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: #3563ff;
+            text-decoration: none;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .form-panel h2 {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #647397;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            margin: 16px 0 7px;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #dce2f3;
+            border-radius: 9px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #8b5cf6;
+            box-shadow: 0 0 0 3px #8b5cf620;
+        }
+
+        .create-btn {
+            width: 100%;
+            border: none;
+            padding: 15px;
+            margin-top: 25px;
+            border-radius: 10px;
+            background: linear-gradient(100deg, #3563ff, #8b5cf6, #f4518c);
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .login-text {
+            text-align: center;
+            margin-top: 22px;
+            font-size: 14px;
+            color: #647397;
+        }
+
+        .login-text a {
+            color: #3563ff;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        @media (max-width: 700px) {
+            .register-container {
+                grid-template-columns: 1fr;
+            }
+
+            .welcome-panel {
+                padding: 30px;
+            }
+
+            .form-panel {
+                padding: 30px 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="register-container">
+
+        <section class="welcome-panel">
+            <h1>Your Future Starts Here! 🎓</h1>
+
+            <p>
+                Join ProgramMatch AI and start exploring college
+                programs, tuition fees, and career opportunities
+                that match your goals.
+            </p>
+
+            <ul>
+                <li>✓ Discover college programs</li>
+                <li>✓ Compare tuition fees</li>
+                <li>✓ Explore career opportunities</li>
+            </ul>
+        </section>
+
+        <section class="form-panel">
+
+            <a href="index.html" class="back-link">← Back to Home</a>
+
+            <h2>Create Account</h2>
+            <p class="subtitle">
+                Enter your details to get started.
+            </p>
+
+            <form id="registerForm">
+                <label for="fullname">Full Name</label>
+                <input
+                    type="text"
+                    id="fullname"
+                    placeholder="Enter your full name"
+                    autocomplete="name"
+                    required
+                >
+
+                <label for="email">Email Address</label>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="you@example.com"
+                    autocomplete="email"
+                    required
+                >
+
+                <label for="password">Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Create a password"
+                    autocomplete="new-password"
+                    minlength="8"
+                    required
+                >
+
+                <label for="confirmPassword">Confirm Password</label>
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Enter your password again"
+                    autocomplete="new-password"
+                    minlength="8"
+                    required
+                >
+
+                <button type="submit" class="create-btn">
+                    Create My Account →
+                </button>
+            </form>
+
+            <p class="login-text">
+                Already have an account?
+                <a href="login.html">Log In</a>
+            </p>
+
+        </section>
+    </main>
+
+    <script>
+        document.getElementById("registerForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+
+            if (password !== confirmPassword) {
+                alert("Your passwords do not match. Please try again.");
+                return;
+            }
+
+            alert("Your registration form is working! Database connection is not set up yet.");
+        });
+    </script>
+
+</body>
+</html>
+
