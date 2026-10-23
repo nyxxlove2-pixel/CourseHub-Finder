@@ -1,0 +1,147 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f6f9fc, #ddf5f6);
+    color: #163b50;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+.register-container {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    max-width: 950px;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 15px 50px rgba(22, 59, 80, 0.10);
+}
+
+.welcome-panel {
+    background: linear-gradient(145deg, #087f8c, #086873, #36b8c3);
+    color: #ffffff;
+    padding: 45px 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.welcome-panel h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.welcome-panel p {
+    line-height: 1.8;
+    margin-bottom: 25px;
+    color: #ffffffeb;
+}
+
+.welcome-panel ul {
+    list-style: none;
+    line-height: 2.5;
+}
+
+.form-panel {
+    padding: 45px 40px;
+    background: #ffffff;
+}
+
+.back-link {
+    display: inline-block;
+    color: #087f8c;
+    text-decoration: none;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.form-panel h2 {
+    font-size: 30px;
+    margin-bottom: 8px;
+    color: #163b50;
+}
+
+.subtitle {
+    color: #718596;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 16px 0 7px;
+    color: #163b50;
+}
+
+input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #e4edf2;
+    border-radius: 9px;
+    font-size: 14px;
+    outline: none;
+    background: #ffffff;
+    color: #163b50;
+}
+
+input:focus {
+    border-color: #087f8c;
+    box-shadow: 0 0 0 3px rgba(8, 127, 140, 0.12);
+}
+
+.create-btn {
+    width: 100%;
+    border: none;
+    padding: 15px;
+    margin-top: 25px;
+    border-radius: 10px;
+    background: linear-gradient(100deg, #087f8c, #086873);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.create-btn:hover {
+    background: #086873;
+}
+
+.login-text {
+    text-align: center;
+    margin-top: 22px;
+    font-size: 14px;
+    color: #718596;
+}
+
+.login-text a {
+    color: #087f8c;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+@media (max-width: 700px) {
+    .register-container {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome-panel {
+        padding: 30px;
+    }
+
+    .form-panel {
+        padding: 30px 25px;
+    }
+}
+

@@ -4,384 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProgramMatch AI | Program/Course Finder</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        :root {
-            --blue: #3563ff;
-            --purple: #8b5cf6;
-            --pink: #f4518c;
-            --dark: #14245b;
-            --muted: #647397;
-        }
-
-        body {
-            margin: 0;
-            min-height: 100vh;
-            font-family: Arial, sans-serif;
-
-            background:
-        radial-gradient(
-            ellipse at 0% 100%,
-            rgba(137, 123, 255, 0.45) 0%,
-            transparent 32%
-        ),
-        radial-gradient(
-            ellipse at 100% 0%,
-            rgba(199, 155, 255, 0.55) 0%,
-            transparent 28%
-        ),
-        radial-gradient(
-            ellipse at 100% 100%,
-            rgba(255, 105, 190, 0.45) 0%,
-            transparent 25%
-        ),
-        radial-gradient(
-            ellipse at 50% 50%,
-            rgba(226, 237, 255, 0.6) 0%,
-            transparent 65%
-        ),
-        #f8fbff;
-
-        background-attachment: fixed;
-        overflow-x: hidden;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        /* Navigation */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 24px 8%;
-            gap: 25px;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--dark);
-        }
-
-        .logo span,
-        .gradient-text {
-            background: linear-gradient(
-                90deg, var(--purple), var(--pink)
-            );
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .navbar nav {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-        }
-
-        .navbar nav a {
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        .navbar nav a:hover {
-            color: var(--blue);
-        }
-
-        .navbar nav .login-btn {
-            color: var(--blue);
-            border: 1px solid var(--blue);
-            padding: 9px 20px;
-            border-radius: 30px;
-        }
-
-        .navbar nav .register-btn,
-        .primary-btn {
-            color: var(--blue);
-            border: 1px solid var(--blue);
-            padding: 9px 20px;
-            border-radius: 30px;
-        }
-
-        /* Hero Section */
-        .hero {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            align-items: center;
-            gap: 50px;
-            padding: 75px 8% 90px;
-            background: linear-gradient(135deg, #fff, #f4f6ff);
-        }
-
-        .tagline {
-            display: inline-block;
-            padding: 7px 16px;
-            border-radius: 30px;
-            background: #ecebff;
-            color: var(--blue);
-            font-size: 14px;
-            margin-bottom: 22px;
-        }
-
-        .hero h1 {
-            font-size: clamp(36px, 4vw, 56px);
-            line-height: 1.15;
-            margin-bottom: 22px;
-        }
-
-        .hero-content > p {
-            color: var(--muted);
-            max-width: 550px;
-            margin-bottom: 25px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 18px;
-        }
-
-        .primary-btn,
-        .secondary-btn {
-            display: inline-block;
-            padding: 13px 24px;
-            border-radius: 30px;
-            font-weight: bold;
-            transition: 0.2s;
-        }
-
-        .primary-btn:hover,
-        .secondary-btn:hover {
-            transform: translateY(-3px);
-        }
-
-        .secondary-btn {
-            color: var(--blue);
-            border: 1px solid var(--blue);
-            background: white;
-        }
-
-        .small-text {
-            color: #8792ad;
-            font-size: 13px;
-        }
-
-        /* Illustration Panel */
-        .hero-visual {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 25px;
-        }
-
-        .illustration-card {
-            position: relative;
-            width: 100%;
-            max-width: 420px;
-            min-height: 330px;
-            padding: 55px 25px;
-            text-align: center;
-            border-radius: 35px;
-            background: linear-gradient(
-                145deg, #e7efff, #f1e7ff, #ffe9f3
-            );
-            box-shadow: 0 20px 50px #6d83ff15;
-        }
-
-        .illustration-icon {
-            font-size: 80px;
-            margin-bottom: 12px;
-        }
-
-        .illustration-card h2 {
-            margin-bottom: 10px;
-        }
-
-        .illustration-card p {
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        .floating-card {
-            position: absolute;
-            background: white;
-            padding: 11px 14px;
-            border-radius: 14px;
-            font-size: 13px;
-            font-weight: bold;
-            box-shadow: 0 8px 25px #253b7010;
-        }
-
-        .blue-card {
-            top: 20px;
-            left: -20px;
-            color: var(--blue);
-        }
-
-        .pink-card {
-            top: 120px;
-            right: -20px;
-            color: var(--pink);
-        }
-
-        .purple-card {
-            bottom: 25px;
-            left: 15px;
-            color: var(--purple);
-        }
-
-        /* About */
-        .about {
-            padding: 65px 8%;
-            text-align: center;
-        }
-
-        .about h2,
-        .features h2 {
-            font-size: 32px;
-            margin-bottom: 18px;
-        }
-
-        .about p {
-            max-width: 800px;
-            margin: auto;
-            color: var(--muted);
-        }
-
-        /* Features */
-        .features {
-            padding: 60px 8% 85px;
-            text-align: center;
-            background: #f6f8ff;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 22px;
-            margin-top: 35px;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 28px 20px;
-            border: 1px solid #edf0fa;
-            border-radius: 20px;
-            transition: 0.2s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px #253b7010;
-        }
-
-        .feature-icon {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            width: 58px;
-            height: 58px;
-            border-radius: 18px;
-            font-size: 25px;
-            margin-bottom: 12px;
-        }
-
-        .blue-icon {
-            background: #e8efff;
-        }
-
-        .pink-icon {
-            background: #ffe8f2;
-        }
-
-        .purple-icon {
-            background: #eee7ff;
-        }
-
-        .feature-card h3 {
-            margin-bottom: 10px;
-            font-size: 17px;
-        }
-
-        .feature-card p {
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 25px;
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 900px) {
-            .navbar {
-                flex-direction: column;
-            }
-
-            .navbar nav {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 14px;
-            }
-
-            .hero {
-                grid-template-columns: 1fr;
-                padding: 50px 7%;
-            }
-
-            .feature-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 520px) {
-            .hero h1 {
-                font-size: 36px;
-            }
-
-            .feature-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .floating-card {
-                font-size: 10px;
-                padding: 8px;
-            }
-
-            .blue-card {
-                left: -10px;
-            }
-
-            .pink-card {
-                right: -10px;
-            }
-        }
-    </style>
+    <title>Program/Course Finder</title>
+    <link rel="stylesheet" href="/assets/index.css"/>
 </head>
 
 <body>
 
     <header class="navbar">
         <a href="index.html" class="logo">
-            🎓  Program/Course <span>Finder</span>
-        </a>
+            <div class="illustration-logo.png"></div>
+            </div><img src="assets/logo.png" alt="logo"  class="navbar-logo-img" 
+            > 
+            <span class="logo-text">PC Finder </span>
+            </a>
 
-        <nav>
+        <nav class="nav-links">
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#features">Features</a>
@@ -390,11 +27,40 @@
                 Create Account
             </a>
         </nav>
+        
+        
+<nav class="nav-mobile">
+    <a href="#home" class="active">
+        <span>⌂</span>
+        <small>Home</small>
+    </a>
+
+    <a href="#about">
+        <span>ⓘ</span>
+        <small>About</small>
+    </a>
+
+    <a href="#features">
+        <span>✧</span>
+        <small>Features</small>
+    </a>
+
+    <a href="login.html">
+        <span>↪</span>
+        <small>Log In</small>
+    </a>
+
+    <a href="register.html">
+        <span>＋</span>
+        <small>Register</small>
+    </a>
+</nav>
+
     </header>
 
     <main>
         <section class="hero" id="home">
-
+            <div class="hero-blender"></div>
             <div class="hero-content">
                 <span class="tagline">
                     ✨ Your Future, Made Easier
@@ -406,30 +72,27 @@
                 </h1>
 
                 <p>
-                    ProgramMatch AI helps you explore college programs
+                    Program/Course Finder helps you explore college programs
                     based on your interests, skills, academic background,
                     and career goals. Compare tuition fees and discover
                     your future — all in one place.
                 </p>
 
-                <div class="hero-buttons">
-                    <a href="register.html" class="primary-btn">
-                        Create Account →
-                    </a>
 
-                    <a href="login.html" class="secondary-btn">
-                        Log In
-                    </a>
-                </div>
 
                 <p class="small-text">
                     Find your path. Build your future.
                 </p>
+                <button class="cta-btn" onclick="window.location.href='register.html'">
+                    Find Your Course Now!
+                </button>
             </div>
 
-            <div class="hero-visual">
+            <!-- <div class="hero-visual">
                 <div class="illustration-card">
-                    <div class="illustration-icon">🎓</div>
+                    <div class="illustration-icon"><img src="assets/logo.png"
+     alt="logo"
+     class="logo"></div>
 
                     <h2>Your Future Starts Here!</h2>
 
@@ -437,19 +100,8 @@
                         Find programs that match your dreams.
                     </p>
 
-                    <div class="floating-card blue-card">
-                        🔎 Find Your Program
-                    </div>
-
-                    <div class="floating-card pink-card">
-                        💰 Compare Tuition Fees
-                    </div>
-
-                    <div class="floating-card purple-card">
-                        💼 Explore Career Paths
-                    </div>
                 </div>
-            </div>
+            </div> -->
 
         </section>
 
@@ -471,7 +123,16 @@
             <div class="feature-grid">
 
                 <article class="feature-card">
-                    <div class="feature-icon blue-icon">🎯</div>
+                    <div class="feature-icon blue-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                            <path d="M0 0h24v24H0z" fill="none" />
+                            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                                <path d="M20 15c0 1.864 0 2.796-.304 3.53a4 4 0 0 1-2.165 2.165C16.796 21 15.864 21 14 21h-3c-3.772 0-5.658 0-6.83-1.172C3 18.657 3 16.771 3 13V7a4 4 0 0 1 4-4" />
+                                <path d="m10 8.5l.434 3.969a.94.94 0 0 0 .552.753c.686.295 1.971.778 3.014.778s2.328-.483 3.014-.778a.94.94 0 0 0 .553-.753L18 8.5m2.5-1v3.77M14 4L7 7l7 3l7-3z" />
+                            </g>
+                        </svg>
+
+                    </div>
                     <h3>Program Finder</h3>
                     <p>
                         Explore college programs that match
@@ -480,7 +141,17 @@
                 </article>
 
                 <article class="feature-card">
-                    <div class="feature-icon pink-icon">💰</div>
+                    <div class="feature-icon pink-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                            <path d="M0 0h24v24H0z" fill="none" />
+                            <g fill="none">
+                                <path fill="currentColor" d="M11.97 22c3.05 0 4.57 0 5.64-.55A5 5 0 0 0 20.24 18c.24-1.17-.17-2.64-.98-5.58l-.18-.64c-.46-1.67-.69-2.5-1.12-3.16a5 5 0 0 0-2.65-2.02c-.75-.24-1.61-.24-3.34-.24c-1.75 0-2.63 0-3.38.24a5 5 0 0 0-2.67 2.06c-.42.66-.65 1.5-1.1 3.2l-.16.65c-.77 2.91-1.16 4.37-.9 5.54a5 5 0 0 0 2.62 3.41c1.07.54 2.58.54 5.59.54" opacity=".2" />
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12.08 22c3.14 0 4.71 0 5.82-.6a5 5 0 0 0 2.48-3.14c.31-1.22-.06-2.75-.8-5.8l-.06-.25c-.47-1.93-.7-2.9-1.2-3.64a5 5 0 0 0-2.42-1.9c-.84-.31-1.83-.31-3.82-.31c-1.95 0-2.92 0-3.75.3a5 5 0 0 0-2.4 1.85c-.5.72-.75 1.67-1.25 3.55l-.07.25c-.81 3.1-1.22 4.64-.92 5.88a5 5 0 0 0 2.47 3.2c1.12.61 2.72.61 5.92.61" />
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m15.33 6.36l.54-1.1c.55-1.08.82-1.63.83-1.94a1.5 1.5 0 0 0-1.55-1.57c-.32.01-.88.29-2 .84l-.5.23a2 2 0 0 1-1.3 0l-.48-.23c-.92-.46-1.39-.7-1.65-.72a1.5 1.5 0 0 0-1.66 1.69c.04.26.28.72.76 1.63l.61 1.17m5.63 5.58c-.22-.7-1.28-1.24-2.52-1.24c-1.25 0-2.6.47-2.6 1.88c0 3.04 5.12.7 5.12 3.53c0 1.3-1.25 1.8-2.52 1.8s-2.2-.55-2.6-1.27M11.98 19v-.97m0-7.49V9.6" />
+                            </g>
+                        </svg>
+
+                    </div>
                     <h3>Tuition Fee Finder</h3>
                     <p>
                         Compare tuition fees and explore
@@ -489,7 +160,13 @@
                 </article>
 
                 <article class="feature-card">
-                    <div class="feature-icon purple-icon">💼</div>
+                    <div class="feature-icon purple-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                            <path d="M0 0h24v24H0z" fill="none" />
+                            <path fill="currentColor" d="M17.5 11h-11a2.5 2.5 0 0 1 0-5H10v2l4-3l-4-3v2H6.5C4.02 4 2 6.02 2 8.5S4.02 13 6.5 13h11a2.5 2.5 0 0 1 0 5H7.82A2.99 2.99 0 0 0 5 16c-1.65 0-3 1.35-3 3s1.35 3 3 3c1.3 0 2.4-.84 2.82-2h9.68c2.48 0 4.5-2.02 4.5-4.5S19.98 11 17.5 11M19 2a3 3 0 1 0 0 6a3 3 0 1 0 0-6" />
+                        </svg>
+
+                    </div>
                     <h3>Career Guidance</h3>
                     <p>
                         Discover possible careers related
@@ -498,7 +175,13 @@
                 </article>
 
                 <article class="feature-card">
-                    <div class="feature-icon blue-icon">🤖</div>
+                    <div class="feature-icon blue-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48">
+                            <path d="M0 0h48v48H0z" fill="none" />
+                            <path fill="currentColor" d="M34 6c-1.368 4.944-3.13 6.633-8 8c4.87 1.367 6.632 3.056 8 8c1.368-4.944 3.13-6.633 8-8c-4.87-1.367-6.632-3.056-8-8m-14 8c-2.395 8.651-5.476 11.608-14 14c8.524 2.392 11.605 5.349 14 14c2.395-8.651 5.476-11.608 14-14c-8.524-2.392-11.605-5.349-14-14" />
+                        </svg>
+
+                    </div>
                     <h3>AI Recommendations</h3>
                     <p>
                         Get personalized suggestions based
@@ -511,7 +194,7 @@
     </main>
 
     <footer>
-        © 2026 ProgramMatch AI. Find Your Path, Build Your Future.
+        © 2026 Program/Course Finder. Find Your Path, Build Your Future.
     </footer>
 
 </body>

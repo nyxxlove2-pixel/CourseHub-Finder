@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Finder | Dashboard</title>
+    <link rel="stylesheet" href="assets/dashboard.css">
+</head>
+<body>
+
+    <aside class="sidebar" id="sidebar">
+        <a href="index.html" class="brand">
+            <span class="brand-icon">PC</span>
+            <span>PC <b>Finder</b></span>
+        </a>
+
+        <p class="nav-label">MENU</p>
+
+        <nav class="navigation">
+            <a href="dashboard.html" class="nav-link active">
+                <span>⌂</span> Dashboard
+            </a>
+            <a href="programs.html" class="nav-link">
+                <span>⌕</span> Find Programs
+            </a>
+            <a href="tuition.html" class="nav-link">
+                <span>₱</span> Tuition Fees
+            </a>
+            <a href="career-guidance.html" class="nav-link">
+                <span>✳</span> Career Guidance
+            </a>
+            <a href="career-guidance.html#recommendations" class="nav-link">
+                <span>✧</span> AI Recommendations
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="profile.html" class="nav-link">
+                <span>◉</span> My Profile
+            </a>
+            <a href="login.html" class="nav-link logout" id="logoutLink">
+                <span>↪</span> Log Out
+            </a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <button class="menu-toggle" id="menuToggle"
+                aria-label="Toggle navigation">☰</button>
+
+            <p>Workspace / <strong>Dashboard</strong></p>
+
+            <a href="profile.html" class="profile-avatar" id="avatar">S</a>
+        </header>
+
+        <div class="content">
+
+            <section class="welcome">
+                <p class="eyebrow">STUDENT DASHBOARD</p>
+                <h1>Welcome, <span id="studentName">Student</span>!</h1>
+                <p>
+                    Your future starts with one good choice.
+                    Let's find the program that's right for you.
+                </p>
+            </section>
+
+            <section class="search-section">
+                <div>
+                    <h2>What would you like to study?</h2>
+                    <p>Explore programs and discover your options.</p>
+                </div>
+
+                <form id="searchForm" class="search-form">
+                    <input
+                        type="search"
+                        id="searchInput"
+                        placeholder="Search courses or programs..."
+                        aria-label="Search programs"
+                    >
+                    <button type="submit">Search</button>
+                </form>
+            </section>
+
+            <section class="section">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">EXPLORE PC FINDER</p>
+                        <h2>Quick Access</h2>
+                    </div>
+                </div>
+
+                <div class="quick-grid">
+
+                    <a href="programs.html" class="quick-card">
+                        <div class="card-icon teal-icon">⌕</div>
+                        <h3>Find Programs</h3>
+                        <p>Discover courses that match your interests.</p>
+                        <span class="card-link">Explore programs →</span>
+                    </a>
+
+                    <a href="tuition.html" class="quick-card">
+                        <div class="card-icon gold-icon">₱</div>
+                        <h3>Tuition Fees</h3>
+                        <p>Explore estimated tuition and school expenses.</p>
+                        <span class="card-link">View tuition →</span>
+                    </a>
+
+                    <a href="career-guidance.html" class="quick-card">
+                        <div class="card-icon green-icon">✳</div>
+                        <h3>Career Guidance</h3>
+                        <p>Discover careers related to your interests.</p>
+                        <span class="card-link">Explore careers →</span>
+                    </a>
+
+                    <a href="career-guidance.html#recommendations"
+                       class="quick-card">
+                        <div class="card-icon purple-icon">✧</div>
+                        <h3>AI Recommendations</h3>
+                        <p>Explore programs that may suit your goals.</p>
+                        <span class="card-link">Find your match →</span>
+                    </a>
+
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">GET INSPIRED</p>
+                        <h2>Explore Program Areas</h2>
+                    </div>
+                    <a href="programs.html" class="view-all">
+                        View all →
+                    </a>
+                </div>
+
+                <div class="program-grid">
+
+                    <article class="program-card">
+                        <div class="program-art it-art">
+                            <span>&lt;/&gt;</span>
+                        </div>
+                        <div class="program-info">
+                            <p class="program-category">TECHNOLOGY</p>
+                            <h3>Information Technology</h3>
+                            <p>
+                                Explore software, networking, and digital
+                                solutions.
+                            </p>
+                            <a href="programs.html">Learn more →</a>
+                        </div>
+                    </article>
+
+                    <article class="program-card">
+                        <div class="program-art business-art">
+                            <span>↗</span>
+                        </div>
+                        <div class="program-info">
+                            <p class="program-category">BUSINESS</p>
+                            <h3>Business Administration</h3>
+                            <p>
+                                Learn about management, marketing, and
+                                entrepreneurship.
+                            </p>
+                            <a href="programs.html">Learn more →</a>
+                        </div>
+                    </article>
+
+                    <article class="program-card">
+                        <div class="program-art education-art">
+                            <span>✎</span>
+                        </div>
+                        <div class="program-info">
+                            <p class="program-category">EDUCATION</p>
+                            <h3>Education</h3>
+                            <p>
+                                Explore teaching and lifelong learning
+                                opportunities.
+                            </p>
+                            <a href="programs.html">Learn more →</a>
+                        </div>
+                    </article>
+
+                </div>
+
+                <p class="disclaimer">
+                    Sample program areas for demonstration. Verify actual
+                    programs and tuition fees with the respective schools.
+                </p>
+            </section>
+
+            <section class="career-banner">
+                <div>
+                    <p class="eyebrow">YOUR FUTURE, YOUR CHOICE</p>
+                    <h2>Still deciding on your future?</h2>
+                    <p>
+                        Explore your interests and take the first step
+                        toward finding your path.
+                    </p>
+                </div>
+                <a href="career-guidance.html" class="primary-button">
+                    Get Started →
+                </a>
+            </section>
+
+            <footer class="footer">
+                <span>© 2026 PC Finder</span>
+                <span>Find your path. Build your future.</span>
+            </footer>
+
+        </div>
+    </main>
+
+    <div class="overlay" id="overlay"></div>
+
+    <script>
+        // Demo personalization; real authentication requires a backend.
+        const savedName = localStorage.getItem("pcFinderStudentName");
+
+        if (savedName) {
+            document.getElementById("studentName").textContent = savedName;
+            document.getElementById("avatar").textContent =
+                savedName.trim().charAt(0).toUpperCase() || "S";
+        }
+
+        const sidebar = document.getElementById("sidebar");
+        const menuToggle = document.getElementById("menuToggle");
+        const overlay = document.getElementById("overlay");
+
+        function closeSidebar() {
+            sidebar.classList.remove("sidebar-open");
+            overlay.classList.remove("show");
+        }
+
+        menuToggle.addEventListener("click", () => {
+            sidebar.classList.toggle("sidebar-open");
+            overlay.classList.toggle("show");
+        });
+
+        overlay.addEventListener("click", closeSidebar);
+
+        document.querySelectorAll(".navigation a").forEach(link => {
+            link.addEventListener("click", closeSidebar);
+        });
+
+        document.getElementById("searchForm").addEventListener("submit",
+            function(event) {
+                event.preventDefault();
+
+                const query = document.getElementById("searchInput")
+                    .value.trim();
+
+                if (query) {
+                    window.location.href =
+                        "programs.html?q=" + encodeURIComponent(query);
+                }
+            }
+        );
+
+        document.getElementById("logoutLink").addEventListener("click", () => {
+            localStorage.removeItem("pcFinderStudentName");
+        });
+    </script>
+
+</body>
+</html>
